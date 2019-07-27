@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IUTAPI.Models
 {
-    [Table("facultymembers")]
+    [Table("facultymember")]
     public class FacultyMember
     {
         [Column("employeeid")]
@@ -26,5 +26,7 @@ namespace IUTAPI.Models
         public string Email { get; set; }
         [Column("roomnumber")]
         public string RoomNumber { get; set; }
+        [Column("gender")]
+        public string Gender { get; set; }
     }
 }
