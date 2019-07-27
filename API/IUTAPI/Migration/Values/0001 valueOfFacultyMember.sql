@@ -1,0 +1,10 @@
+﻿insert into facultymember values(10001,'Mr. A','CSE','0123456789','Assistant Professor','abc@gmail.com','AB2-501','Male');
+insert into facultymember values(10002,'Mr. B','EEE','0123456789','Professor','def@gmail.com','AB1-201','Male');
+insert into facultymember values(10003,'Mr. C','CSE','0123456789','Lecturer','ghi@gmail.com','AB2-404','Male');
+insert into facultymember values(10004,'Ms. D','CSE','0123456789','Lecturer','jkl@gmail.com','AB2-501','Female');
+insert into facultymember values(10005,'Mr. E','EEE','0123456789','Lecturer','mno@gmail.com','AB2-504','Male');
+insert into facultymember values(10006,'Mr. F','CSE','0123456789','Part-time Faculty','pqr@gmail.com','AB2-505','Male');
+insert into facultymember values(10007,'Ms. G','MPE','0123456789','Professor','stu@gmail.com','AB2-401','Female');
+insert into facultymember values(10008,'Ms. H','CEE','0123456789','Assistant Professor','vwx@gmail.com','AB1-404','Female');
+insert into facultymember values(10009,'Mr. I','TVE','0123456789','Assistant Professor','yza@gmail.com','AB1-408','Male');
+insert into facultymember values(100010,'Mr. J','BTM','0123456789','Assistant Professor','bcd@gmail.com','AB1-201','Male');
