@@ -8,3 +8,4 @@ insert into student values(170042007,'G','CSE','SWE',2015,'Rajshahi','bhe@gmail.
 insert into student values(170042008,'H','CSE','CSE',2014,'Sylhet','jol@gmail.com','Male');
 insert into student values(170042009,'I','CSE','SWE',2013,'Chittagonj','qfw@gmail.com','Female');
 insert into student values(1700420010,'F','CSE','SWE',2017,'Rongpur','rgw@gmail.com','Male');
+insert into student values(1700420010,'F','EEE',NULL,2017,'Rongpur','rgw@gmail.com','Male');
