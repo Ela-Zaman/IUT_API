@@ -1,26 +1,28 @@
-﻿using System.Threading.Tasks;
-using IUTAPI.Models;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using IUTAPI.Models;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
 
 namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class studentController : ControllerBase
+    public class CourseController : ControllerBase
     {
         readonly AddDBContext Context;
-        public studentController(AddDBContext context)
+        public CourseController(AddDBContext context)
             => Context = context;
 
         [HttpGet]
         [EnableQuery()]
-        public IEnumerable GetRooms()
+        public IActionResult GetRooms()
         {
-            return Context.student;
+            var course = Context.Course.ToList();
+            return Ok(course);
         }
     }
 }
