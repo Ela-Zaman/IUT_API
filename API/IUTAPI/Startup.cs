@@ -36,6 +36,13 @@ namespace IUTAPI
             services.AddEntityFrameworkNpgsql()
                  .AddDbContext<AddDBContext>()
                  .BuildServiceProvider();
+
+            services.AddCors(o => o.AddPolicy("DevConsole", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
        
