@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("DevConsole")]
     public class ValuesController : ControllerBase
     {
         // GET api/values
@@ -27,7 +29,7 @@ namespace IUTAPI.Controllers
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
-        {
+        { 
         }
 
         // PUT api/values/5
@@ -43,3 +45,4 @@ namespace IUTAPI.Controllers
         }
     }
 }
+ 

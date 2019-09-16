@@ -26,6 +26,8 @@ namespace IUTAPI.Models
         public string Type { get; set; }
         [Column("prerequisitecourse")]
         public string PrerequisiteCourse { get; set; }
+
+
      
     }
 }
