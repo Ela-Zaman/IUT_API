@@ -33,34 +33,29 @@ namespace IUTAPI.Controllers
             var filepath = "C:\\Projects\\import2.csv";
            
 
-            string[] Lines = System.IO.File.ReadAllLines(filepath);
-           
-            
-            Course dt = new Course();
-            string[] Fields;
-            DataRow Row;
-            for (int i = 0; i < Lines.GetLength(0) - 1; i++)
-            {
-                Fields = Lines[i].Split(new char[] { ',' });
-
-
-                Context.Course.Add(new Course
-                {
-                    CourseId = Fields[0],
-                    Title = Fields[1],
-                    Credit = Convert.ToInt32(Fields[2]),
-                    Deptartment = Fields[3],
-                    Semester = Convert.ToInt32(Fields[4]),
-                    Type = Fields[5],
-                    PrerequisiteCourse = Fields[6]
-
-
-                });
-            }
-
-  
+            var lines = System.IO.File.ReadAllLines(filepath).Where(line => !string.IsNullOrWhiteSpace(line));
+            var courses = lines.Select(line => ReadFromCsv(line));
+            Context.Course.AddRange(courses);
             Context.SaveChanges();
-            return Ok(Lines);
+            return Ok(courses);
+        }
+
+        private Course ReadFromCsv(string line)
+        {
+            var fields = line.Split(new char[] { ',' });
+
+            var course = new Course
+            {
+                CourseId = fields[0],
+                Title = fields[1],
+                Credit = Convert.ToInt32(fields[2]),
+                Deptartment = fields[3],
+                Semester = Convert.ToInt32(fields[4]),
+                Type = fields[5],
+                PrerequisiteCourse = fields[6]
+            };
+
+            return course;
         }
     }
 }
