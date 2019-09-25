@@ -12,6 +12,8 @@ namespace IUTAPI.Models
          public DbSet<Student> student { get; set; }
 
         public DbSet<Course> Course { get; set; }
+        public DbSet<Staff> Staff { get; set; }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
                 => optionsBuilder.UseNpgsql("Host=localhost;Database=IUTAPI;Username=CodeBlue;Password=iutswe");
     }
