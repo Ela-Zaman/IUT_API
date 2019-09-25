@@ -1,0 +1,1 @@
+﻿insert into staff values('10001','Mr. A','Senior Worker','094834894','Cafeteria','Male')
