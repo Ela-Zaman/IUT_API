@@ -43,6 +43,7 @@ namespace IUTAPI
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+            
         }
 
        
@@ -53,14 +54,19 @@ namespace IUTAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            
             else { app.UseHsts(); }
+            app.UseApiKey();
             app.UseHttpsRedirection();
+            
             app.UseMvc();
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.EnableDependencyInjection();
                 routeBuilder.Expand().Select().Count().OrderBy().Filter();
             });
+            
+
         }
 
     }
