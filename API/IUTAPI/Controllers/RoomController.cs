@@ -12,50 +12,50 @@ namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StaffController : Controller
+    public class RoomController : Controller
     {
+
         readonly AddDBContext Context;
-        public StaffController(AddDBContext context)
+        public RoomController(AddDBContext context)
             => Context = context;
 
         [HttpGet]
         [EnableQuery()]
         public IActionResult GetRooms()
         {
-            var staff = Context.Staff.ToList();
-            return Ok(staff);
+            var room = Context.Room.ToList();
+            return Ok(room);
         }
 
         [HttpGet("import")]
         public IActionResult Import()
         {
             // 
-            var filepath = "C:\\Projects\\Staff.csv";
+            var filepath = "C:\\Projects\\import2.csv";
 
 
             var lines = System.IO.File.ReadAllLines(filepath).Where(line => !string.IsNullOrWhiteSpace(line));
-            var staffs = lines.Select(line => ReadFromCsv(line));
-            Context.Staff.AddRange(staffs);
+            var rooms = lines.Select(line => ReadFromCsv(line));
+            Context.Room.AddRange(rooms);
             Context.SaveChanges();
-            return Ok(staffs);
+            return Ok(rooms);
         }
 
-        private Staff ReadFromCsv(string line)
+        private Room ReadFromCsv(string line)
         {
             var fields = line.Split(new char[] { ',' });
 
-            var staff = new Staff
+            var room = new Room
             {
-                StaffId = fields[0],
-                Name = fields[1],
-                Designation =fields[2],
-                MobileNumber = fields[3],
-                WorkArea = fields[4],
-                Gender = fields[5]
-              
+                RoomId = fields[0],
+                RoomNo = Convert.ToInt32(fields[1]),
+                RoomName = fields[2],
+                Building = fields[3],
+                RoomType = fields[4]
+
             };
 
-            return staff;
+            return room;
         }
     }
 }
