@@ -16,7 +16,10 @@ export class HabijabiComponent implements OnInit {
 
   iClicked(){
     this.counter++;
-    this.http.get<any>("http://localhost:60511/api/values").subscribe(response=>{
+    this.http.post<any>("http://localhost:60511/api/values", {
+      name: "emad",
+      id: 71
+    }).subscribe(response=>{
       console.log(response);
     });
   }
