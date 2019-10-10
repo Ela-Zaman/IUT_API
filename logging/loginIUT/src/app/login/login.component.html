@@ -1,0 +1,11 @@
+<li *ngIf="!user">
+    <button (click)="login()" class="loginBtn loginBtn--google">Login</button>
+  </li>
+
+
+  <li *ngIf="user">
+    {{user.displayName}}
+    <button (click)="logout()" class="loginBtn loginBtn--google">Logout</button>
+  </li>
+
+
