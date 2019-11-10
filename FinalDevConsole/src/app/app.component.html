@@ -1,6 +1,49 @@
-<h1>
-    {{title}}
-</h1>
-<br>
-<a routerLink="/main">Home</a>
-<a routerLink="/main">Home</a>
+<div id="header" class="nav-collapse" >
+  <div class="row clearfix">
+      <div class="col-1">
+
+          <!--Logo-->
+          <div id="logo">
+
+              <!--Logo that is shown on the banner-->
+           
+
+          </div>
+          <!--End of Logo-->
+
+          <!--Main Navigation-->
+          <nav id="nav-main">
+              <ul>
+                  <li>
+                      <a routerLink="/welcome" routerLinkActive="active">welcome</a>
+                  </li>
+                  <li>
+                    <a routerLink="/home" routerLinkActive="active">Login</a>
+                  </li>
+                  <li>
+                    <a routerLink="/admin" routerLinkActive="active">Admin</a>
+                  </li>
+                  <li>
+                      <a href="#services">Services</a>
+                  </li>
+                  <li>
+                      <a href="#testimonials">Testimonials</a>
+                  </li>
+                  <li>
+                      <a href="#clients">Clients</a>
+                  </li>
+                  <li>
+                     
+                  </li>
+              </ul>
+          </nav>
+          <!--End of Main Navigation-->
+         
+
+      </div>
+  </div>
+</div><!--End of Header-->
+
+<div id="mid" class="med">
+  <router-outlet></router-outlet>
+</div>
