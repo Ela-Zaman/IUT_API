@@ -11,8 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.Filters;
-using System.Web.Http.Results;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using IUTAPI.Filters;
@@ -21,7 +20,7 @@ namespace IUTAPI.Filters
 {
     public class APIkeyMassageHandlerMiddleware
     {
-        private const string APIKeyToCheck = "iut" ;
+        private const string APIKeyToCheck = "Your Generated API KEY" ;
         private RequestDelegate next;
         public APIkeyMassageHandlerMiddleware(RequestDelegate next)
         {
