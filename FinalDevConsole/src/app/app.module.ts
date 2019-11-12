@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';   
 import { FormsModule }          from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { UploadComponent } from './uploadcomponent/upload/upload.component';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 
 const appRoutes: Routes = [
@@ -17,9 +19,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    FileSelectDirective,
     WelcomeComponent,
     HomeComponent,
-    AdminComponent],
+    AdminComponent,
+    UploadComponent],
   imports: [
     BrowserModule,
     FormsModule,
