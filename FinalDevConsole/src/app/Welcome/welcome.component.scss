@@ -811,7 +811,6 @@
   
   #banner {
     background-size: cover;
-    background:
   }
   
   #banner-content.row {
@@ -4509,27 +4508,7 @@ body {
   font-weight: 300;
   color: #111;
 }
-.section-title {
-  font-family: "Open Sans", sans-serif, Arial, Helvetica;
-  font-size: 34px;
-  font-weight: 700;
-  color: #111;
-}
-.section-subtitle {
-  font-family: "Open Sans", sans-serif, Arial, Helvetica;
-  font-size: 16px;
-  font-weight: 300;
-  color: #9c9c9c;
-}
-.testimonial q {
-  font-family: "Open Sans", sans-serif, Arial, Helvetica;
-  font-size: 17px;
-  font-weight: 300;
-}
-.testimonial.classic q,
-.testimonial.classic footer {
-  color: #111;
-}
+
 h1 {
   font-family: "Open Sans", sans-serif, Arial, Helvetica;
   font-size: 40px;
@@ -4618,25 +4597,7 @@ input[type="submit"]:hover {
   color: #d2b356;
   border-color: #d2b356;
 }
-#landing-footer,
-#landing-footer p,
-#landing-footer a {
-  font-family: "Open Sans", sans-serif, Arial, Helvetica;
-  font-size: 12px;
-  font-weight: normal;
-  color: #999;
-}
-#landing-footer i {
-  color: #999;
-}
-
-  
-  #about {
-    background: url("assets/images/hello.png") no-repeat center top;
-    background-size:cover;
-  }
-  /*------------------------------------------------------------------------------------------*/
-  /* 5. Typography */
+/* 5. Typography */
   /*------------------------------------------------------------------------------------------*/
   
   
@@ -4680,35 +4641,6 @@ input[type="submit"]:hover {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
     font-size:18px;
     font-weight:300;
-    color:#111;
-  }
-  
-  
-  /* Section Title and Subtitle */
-  
-  .section-title {
-    font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 34px; 
-    font-weight:700;
-    color:#111;
-  }
-  
-  .section-subtitle {
-    font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 16px;
-    font-weight:300;
-    color:#9c9c9c;
-  }
-  
-  /* Testimonial */
-  
-  .testimonial q {
-    font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 17px; 
-    font-weight:300;
-  }
-  
-  .testimonial.classic q, .testimonial.classic footer {
     color:#111;
   }
   
@@ -4849,19 +4781,4 @@ input[type="submit"]:hover {
   /*------------------------------------------------------------------------------------------*/
   /* 7. Footer */
   /*------------------------------------------------------------------------------------------*/
-  
-  #landing-footer, #landing-footer p, #landing-footer a {
-    font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size:12px;
-    font-weight:normal;
-    color:#999;
-  }
-  
-  /* Footer Icon Color */
-  
-  #landing-footer i {
-    color:#999;
-  }
-  
-  
   

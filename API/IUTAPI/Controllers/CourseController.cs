@@ -4,9 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using IUTAPI.Models;
+using System.Text;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 
 namespace IUTAPI.Controllers
 {
@@ -26,15 +28,23 @@ namespace IUTAPI.Controllers
             return Ok(course);
         }
 
-        [HttpGet("import")]
-        public IActionResult Import()
+        [HttpPost]
+        public IActionResult Create(IFormFile csvfile)
         {
-            // 
-            var filepath = "C:\\Projects\\import2.csv";
-           
-
-            var lines = System.IO.File.ReadAllLines(filepath).Where(line => !string.IsNullOrWhiteSpace(line));
-            var courses = lines.Select(line => ReadFromCsv(line));
+            
+            var course = new List<String>();
+            using (var reader = new StreamReader(csvfile.OpenReadStream()))
+            {
+                while (reader.Peek() >= 0)
+                {
+                    if (String.IsNullOrWhiteSpace(reader.ReadLine()))
+                    {
+                        continue;
+                    }
+                        course.Add(reader.ReadLine());
+                }
+            }
+            var courses = course.Select(line => ReadFromCsv(line));
             Context.Course.AddRange(courses);
             Context.SaveChanges();
             return Ok(courses);
@@ -48,9 +58,9 @@ namespace IUTAPI.Controllers
             {
                 CourseId = fields[0],
                 Title = fields[1],
-                Credit = Convert.ToInt32(fields[2]),
+               
                 Deptartment = fields[3],
-                Semester = Convert.ToInt32(fields[4]),
+               
                 Type = fields[5],
                 PrerequisiteCourse = fields[6]
             };
