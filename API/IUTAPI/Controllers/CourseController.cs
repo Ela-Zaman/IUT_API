@@ -20,38 +20,55 @@ namespace IUTAPI.Controllers
         public CourseController(AddDBContext context)
             => Context = context;
 
+
         [HttpGet]
         [EnableQuery()]
         public IActionResult GetRooms()
         {
-            var course = Context.Course.ToList();
-            return Ok(course);
+            var staff = Context.Course.ToList();
+            return Ok(staff);
         }
 
+
+
         [HttpPost]
-        public IActionResult Create(IFormFile csvfile)
+
+
+
+
+
+        public IActionResult ReadAsStringAsync( IFormFile file)
         {
-            
-            var course = new List<String>();
-            using (var reader = new StreamReader(csvfile.OpenReadStream()))
+            string courses;
+            Course c = new Course();
+        
+            using (var reader = new StreamReader(file.OpenReadStream()))
             {
                 while (reader.Peek() >= 0)
                 {
-                    if (String.IsNullOrWhiteSpace(reader.ReadLine()))
+                    if(string.IsNullOrWhiteSpace(reader.ReadLine()))
                     {
                         continue;
                     }
-                        course.Add(reader.ReadLine());
+                    courses = reader.ReadLine();
+                    c = ReadFromCsv(courses);
                 }
+               
+                    Context.Course.AddRange(c);
+                    Context.SaveChanges();
+
+                    return Ok(c);
+                }
+              
             }
-            var courses = course.Select(line => ReadFromCsv(line));
-            Context.Course.AddRange(courses);
-            Context.SaveChanges();
-            return Ok(courses);
-        }
+
+     
+    
+
 
         private Course ReadFromCsv(string line)
         {
+
             var fields = line.Split(new char[] { ',' });
 
             var course = new Course
