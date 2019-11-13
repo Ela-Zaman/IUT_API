@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-apikey',
   templateUrl: './apikey.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApikeyComponent implements OnInit {
 
-  constructor() { }
+
 
   ngOnInit() {
   }
