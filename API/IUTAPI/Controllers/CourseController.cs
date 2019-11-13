@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using IUTAPI.Models;
@@ -27,17 +28,35 @@ namespace IUTAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Import()
+        public IActionResult ReadCsvfile(IFormFile file)
         {
-            // 
-            var filepath = "C:\\Projects\\import2.csv";
-           
+            List<string> course = new List<string>();
+            List<Course> cat = new List<Course>();
+            using (var reader = new StreamReader(file.OpenReadStream()))
+            {
+                while (reader.Peek() >0)
+                {
+                   course.Add(reader.ReadLine());
+                }
+                foreach(string c in course)
+                {
+                    if (c == null)
+                        continue;
+                    else
+                    {
+                        cat.Add(ReadFromCsv(c));
 
-            var lines = System.IO.File.ReadAllLines(filepath).Where(line => !string.IsNullOrWhiteSpace(line));
-            var courses = lines.Select(line => ReadFromCsv(line));
-            Context.Course.AddRange(courses);
-            Context.SaveChanges();
-            return Ok(courses);
+                    }
+                }
+             
+                Context.Course.AddRange(cat);
+                Context.SaveChanges();
+
+                return Ok(cat);
+            }
+
+
+           
         }
 
         private Course ReadFromCsv(string line)

@@ -22,7 +22,7 @@ namespace IUTAPI.Filters
     public class APIkeyMassageHandlerMiddleware
     {
        
-        private const string APIKeyToCheck = "Your Generated API KEY" ;
+      
         private RequestDelegate next;
         public APIkeyMassageHandlerMiddleware(RequestDelegate next)
         {
@@ -61,15 +61,46 @@ namespace IUTAPI.Filters
         }
     }
 }
-    public static class MyHanlrxtnsions
+public class welcomeuser
+{
+
+
+    private RequestDelegate next;
+    public welcomeuser(RequestDelegate next)
     {
+        this.next = next;
 
-
-        public static IApplicationBuilder UseApiKey(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<APIkeyMassageHandlerMiddleware>();
-        }
     }
+    public async Task Invoke(HttpContext context)
+    {
+        bool validKey = true;
+
+       
+
+
+        
+        if (!validKey)
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
+            await context.Response.WriteAsync("Invalid Api key");
+        }
+        else
+        {
+            await next.Invoke(context);
+        }
+
+    }
+}
+
+ 
+
+public class AuthorizationMiddlewarePipeline
+{
+    public void Configure(IApplicationBuilder applicationBuilder)
+    {
+        applicationBuilder.UseMiddleware<APIkeyMassageHandlerMiddleware>();
+    }
+}
 
 
 

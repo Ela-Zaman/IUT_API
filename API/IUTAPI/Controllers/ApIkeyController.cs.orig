@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using IUTAPI.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     public class ApiKeyController : Controller
     {
         readonly AddDBContext Context;
@@ -20,7 +18,6 @@ namespace IUTAPI.Controllers
             => Context = context;
         // GET: api/<controller>
         [HttpGet]
-        [AllowAnonymous]
         public string Get(string username,string projectname)
         {
             var cryptoProvider = new RNGCryptoServiceProvider();
