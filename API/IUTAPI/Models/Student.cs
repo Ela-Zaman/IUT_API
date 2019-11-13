@@ -11,8 +11,11 @@ namespace IUTAPI.Models
     [Table("student")]
     public class Student
     {
-        [Column("id")]
+        [Column("s_id")]
         [Key]
+        public int S_id { get; set; }
+        [Column("id")]
+        
 
         public int Id { get; set; }
 
