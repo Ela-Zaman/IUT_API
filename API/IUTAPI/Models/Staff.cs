@@ -11,9 +11,10 @@ namespace IUTAPI.Models
     public class Staff
     {
 
-            [Column("staffid")]
+            [Column("st_id")]
             [Key]
-
+            public int St_id { get; set; }
+            [Column("staffid")]
             public string StaffId { get; set; }
             [Column("name")]
             public string Name { get; set; }

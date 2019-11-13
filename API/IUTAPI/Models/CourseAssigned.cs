@@ -16,13 +16,15 @@ namespace IUTAPI.Models
             [Key]
 
             public int CourseAssignedId { get; set; }
-            [Column("employeeid")]
-            public int EmployeeId { get; set; }
+            [Column("F_id")]
+            
+            public int F_id { get; set; }
             [Column("semester")]
             public string Semester { get; set; }
             [Column("batch")]
             public int Batch { get; set; }
-            [Column("courseid")]
+            [Column("C_id")]
+           
             public string CourseId{ get; set; }
             
 

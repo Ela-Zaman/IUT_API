@@ -10,9 +10,10 @@ namespace IUTAPI.Models
     [Table("facultymember")]
     public class FacultyMember
     {
-        [Column("employeeid")]
+        [Column("f_id")]
         [Key]
-
+        public int F_id { get; set; }
+        [Column("f_id")]
         public int EmployeeId { get; set; }
         [Column("name")]
         public string Name { get; set; }

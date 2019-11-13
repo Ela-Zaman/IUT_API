@@ -10,9 +10,11 @@ namespace IUTAPI.Models
     [Table("course")]
     public class Course
     {
-        [Column("courseid")]
+        [Column("c_id")]
         [Key]
 
+        public int C_id { get; set; }
+        [Column("c_id")]
         public string CourseId { get; set; }
         [Column("coursetitle")]
         public string Title { get; set; }

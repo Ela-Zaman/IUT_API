@@ -28,31 +28,36 @@ namespace IUTAPI.Controllers
             return Ok(staff);
         }
         [HttpPost]
-
-
-        public IActionResult Post(IFormFile file)
+        public IActionResult ReadCsvfile(IFormFile file)
         {
-
-
-                using (var reader = new StreamReader(file.OpenReadStream()))
+            List<string> staff = new List<string>();
+            List<Staff> top = new List<Staff>();
+            using (var reader = new StreamReader(file.OpenReadStream()))
+            {
+                while (reader.Peek() > 0)
                 {
-                    var filePath = reader.ReadToEnd();
-
-                    var lines = System.IO.File.ReadAllLines(filePath).Where(line => !string.IsNullOrWhiteSpace(line));
-                    var staffs = lines.Select(line => ReadFromCsv(line));
-                    Context.Staff.AddRange(staffs);
-                    Context.SaveChanges();
-
-                    return Ok(staffs);
+                    staff.Add(reader.ReadLine());
                 }
-            
+                foreach (string c in staff)
+                {
+                    if (c == null)
+                        continue;
+                    else
+                    {
+                        top.Add(ReadFromCsv(c));
+
+                    }
+                }
+
+                Context.Staff.AddRange(top);
+                Context.SaveChanges();
+
+                return Ok(top);
+            }
+
+
+
         }
-
-
-
-
- 
-      
 
         private Staff ReadFromCsv(string line)
         {
@@ -60,13 +65,13 @@ namespace IUTAPI.Controllers
 
             var staff = new Staff
             {
-                StaffId = fields[0],
-                Name = fields[1],
-                Designation =fields[2],
-                MobileNumber = fields[3],
-                WorkArea = fields[4],
-                Gender = fields[5]
-              
+                St_id = Convert.ToInt32(fields[0]),
+                StaffId = fields[1],
+                Name = (fields[2]),
+                Designation = fields[3],
+                MobileNumber = fields[4],
+                WorkArea = fields[5],
+                Gender = fields[6]
             };
 
             return staff;
