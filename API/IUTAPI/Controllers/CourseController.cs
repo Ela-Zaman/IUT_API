@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +13,6 @@ namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("DevConsole")]
     public class CourseController : ControllerBase
     {
         readonly AddDBContext Context;
@@ -36,11 +34,11 @@ namespace IUTAPI.Controllers
             List<Course> cat = new List<Course>();
             using (var reader = new StreamReader(file.OpenReadStream()))
             {
-                while (reader.Peek() >0)
+                while (reader.Peek() > 0)
                 {
-                   course.Add(reader.ReadLine());
+                    course.Add(reader.ReadLine());
                 }
-                foreach(string c in course)
+                foreach (string c in course)
                 {
                     if (c == null)
                         continue;
@@ -50,7 +48,7 @@ namespace IUTAPI.Controllers
 
                     }
                 }
-             
+
                 Context.Course.AddRange(cat);
                 Context.SaveChanges();
 
@@ -58,7 +56,7 @@ namespace IUTAPI.Controllers
             }
 
 
-           
+
         }
 
         private Course ReadFromCsv(string line)
