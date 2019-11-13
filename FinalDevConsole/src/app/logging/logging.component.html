@@ -11,41 +11,13 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <!-- Image and text -->
-<nav class="navbar navbar-light" style="background-color: #338cc0;">
-    <a class="navbar-brand" href="#">
-      <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    IUTAPI
-    </a>
-    <form class="form-inline">
-        <li *ngIf="!user">
-            <button (click)="login()">Login</button>
-          </li>
-        
-        
-          <li *ngIf="user">
-            {{user.displayName}}
-            <button (click)="logout()" class="loginBtn loginBtn--google">Logout</button>
-          
-          </li>
-        
-        
-       <button class="btn btn-outline-success" type="button">LOGIN WITH EMAIL</button>
-      </form>
-  </nav>
-<div>
-    <li *ngIf="!user">
-        <app-welcome></app-welcome>
-      </li>
-      <li *ngIf="user">
-          <app-logging></app-logging>
-        </li>
+    
 
-</div>
-
+<h1>LOgin</h1>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="./assets/js/nav-bar.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

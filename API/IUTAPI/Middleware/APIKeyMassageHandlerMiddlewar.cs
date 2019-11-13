@@ -15,11 +15,13 @@ using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using IUTAPI.Filters;
+using IUTAPI.Models;
 
 namespace IUTAPI.Filters
 {
     public class APIkeyMassageHandlerMiddleware
     {
+       
         private const string APIKeyToCheck = "Your Generated API KEY" ;
         private RequestDelegate next;
         public APIkeyMassageHandlerMiddleware(RequestDelegate next)
@@ -34,11 +36,17 @@ namespace IUTAPI.Filters
             var checkApikeyExists = context.Request.Headers.ContainsKey("APIKey");
             if (checkApikeyExists)
             {
-                if (context.Request.Headers["APIKey"].Equals(APIKeyToCheck))
+                using (var existapikey = new AddDBContext())
                 {
-                    validKey = true;
+                    bool result = existapikey.Apikey.Any(x => x.Apikey== context.Request.Headers["APIKey"]);
+                    if (result)
+                    {
+                        validKey = true;
 
+                    }
                 }
+
+               
             }
             if (!validKey)
             {

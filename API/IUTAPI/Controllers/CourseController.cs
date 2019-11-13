@@ -26,7 +26,7 @@ namespace IUTAPI.Controllers
             return Ok(course);
         }
 
-        [HttpGet("import")]
+        [HttpPost]
         public IActionResult Import()
         {
             // 

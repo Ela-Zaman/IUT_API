@@ -11,21 +11,20 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^1.0.0",
     "@angular/animations": "~8.2.4",
     "@angular/common": "~8.2.4",
     "@angular/compiler": "~8.2.4",
     "@angular/core": "~8.2.4",
+<<<<<<< working copy
+    "@angular/fire": "^5.2.1",
+=======
     "@angular/fire": "^5.2.3",
+>>>>>>> merge rev
     "@angular/forms": "~8.2.4",
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
-    "angular-bootstrap-md": "^8.6.0",
-    "bootstrap": "^4.3.1",
     "firebase": "^7.3.0",
-    "js-beautify": "^1.10.2",
-    "ng2-fileupload": "0.0.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
