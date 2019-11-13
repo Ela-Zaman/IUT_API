@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -27,18 +29,36 @@ namespace IUTAPI.Controllers
             return Ok(room);
         }
 
-        [HttpGet("import")]
-        public IActionResult Import()
+        [HttpPost]
+        public IActionResult ReadCsvfile(IFormFile file)
         {
-            // 
-            var filepath = "C:\\Projects\\import2.csv";
+            List<string> room = new List<string>();
+            List < Room > dot = new List<Room>();
+            using (var reader = new StreamReader(file.OpenReadStream()))
+            {
+                while (reader.Peek() > 0)
+                {
+                    room.Add(reader.ReadLine());
+                }
+                foreach (string c in room)
+                {
+                    if (c == null)
+                        continue;
+                    else
+                    {
+                        dot.Add(ReadFromCsv(c));
+
+                    }
+                }
+
+                Context.Room.AddRange(dot);
+                Context.SaveChanges();
+
+                return Ok(dot);
+            }
 
 
-            var lines = System.IO.File.ReadAllLines(filepath).Where(line => !string.IsNullOrWhiteSpace(line));
-            var rooms = lines.Select(line => ReadFromCsv(line));
-            Context.Room.AddRange(rooms);
-            Context.SaveChanges();
-            return Ok(rooms);
+
         }
 
         private Room ReadFromCsv(string line)
@@ -47,12 +67,13 @@ namespace IUTAPI.Controllers
 
             var room = new Room
             {
-                RoomId = fields[0],
-                RoomNo = Convert.ToInt32(fields[1]),
-                RoomName = fields[2],
-                Building = fields[3],
-                RoomType = fields[4]
-
+                R_id = Convert.ToInt32(fields[0]),
+                RoomId = fields[1],
+                RoomNo = Convert.ToInt32(fields[2]),
+                level = Convert.ToInt32(fields[3]),
+                RoomName = fields[4],
+                Building = fields[5],
+                RoomType = fields[6]
             };
 
             return room;

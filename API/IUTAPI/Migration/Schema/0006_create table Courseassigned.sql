@@ -1,10 +1,10 @@
 ﻿Create Table CourseAssigned(
-c_a_id integer primary key,
-employeeId int,
+CA_id integer primary key,
+F_id int,
 Semester text,
 batch int,
-courseid text,
-foreign key (courseid) references course(courseid),
-foreign key (employeeid)references facultymember(employeeid)
+C_id text,
+foreign key (C_id) references course(C_id),
+foreign key (F_id)references facultymember(F_id)
 
 );
