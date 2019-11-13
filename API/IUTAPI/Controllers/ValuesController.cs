@@ -12,6 +12,7 @@ namespace IUTAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("DevConsole")]
+    [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class ValuesController : ControllerBase
     {
         // GET api/values
