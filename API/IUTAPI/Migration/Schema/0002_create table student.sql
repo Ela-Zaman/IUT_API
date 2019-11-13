@@ -1,5 +1,6 @@
 ﻿Create Table student(
-    id integer primary key,
+	S_id integer identity primary key,
+    id integer,
 	name text,
 	department text,
 	programme text,
