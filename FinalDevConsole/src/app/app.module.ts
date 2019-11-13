@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule }          from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import {LoggingComponent} from './logging/logging.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ApikeyComponent } from './apikey/apikey.component';
+
 
 const config = {
   apiKey: "AIzaSyC57JYiLXcGIRFBDO__nq6iMFQQpakyFuQ",
@@ -21,13 +24,23 @@ const config = {
 
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: WelcomeComponent },
+  {
+    path:'logging',component:LoggingComponent
+  },
+  {
+    path:'apikey',component:ApikeyComponent
+  }
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    WelcomeComponent,
+    LoggingComponent,
+    ApikeyComponent
+   // HomeComponent
   ],
   imports: [
     BrowserModule,
