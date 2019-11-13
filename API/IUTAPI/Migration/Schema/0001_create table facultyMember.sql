@@ -1,5 +1,6 @@
 ﻿Create Table FacultyMember(
-EmployeeId integer primary key,
+F_id integer identity primary key,
+EmployeeId integer,
 Name text,
 Department text,
 MobileNumber text,

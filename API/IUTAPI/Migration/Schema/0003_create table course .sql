@@ -1,5 +1,6 @@
 ﻿Create Table Course(
-CourseId text primary key,
+C_id integer identity primary key,
+CourseId text,
 CourseTitle text,
 CourseCredit integer,
 CourseDept text,

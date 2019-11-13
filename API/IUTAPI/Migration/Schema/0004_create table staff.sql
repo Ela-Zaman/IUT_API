@@ -1,5 +1,6 @@
 ﻿Create Table Staff(
-staffid text primary key,
+S_id integer identity primary key,
+staffid text,
 name text,
 designation text,
 MobileNumber text,
