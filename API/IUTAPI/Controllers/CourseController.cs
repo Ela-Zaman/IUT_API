@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("DevConsole")]
     public class CourseController : ControllerBase
     {
         readonly AddDBContext Context;
