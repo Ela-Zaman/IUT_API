@@ -7,23 +7,26 @@ using System.Threading.Tasks;
 
 namespace IUTAPI.Models
 {
+
     [Table("courseassigned")]
     public class CourseAssigned
     {
         
        
-            [Column("c_a_id")]
+            [Column("ca_serial")]
             [Key]
 
-            public int CourseAssignedId { get; set; }
-            [Column("employeeid")]
-            public int EmployeeId { get; set; }
-            [Column("semester")]
-            public string Semester { get; set; }
-            [Column("batch")]
-            public int Batch { get; set; }
+            public int Ca_id { get; set; }
             [Column("courseid")]
-            public string CourseId{ get; set; }
+            
+            public string CourseId   { get; set; }
+            [Column("facultyid")]
+            public int Facultyid { get; set; }
+            [Column("semester")]
+            public int Semester { get; set; }
+            [Column("batch")]
+           
+            public int Batch{ get; set; }
             
 
 

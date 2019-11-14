@@ -15,12 +15,14 @@ using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using IUTAPI.Filters;
+using IUTAPI.Models;
 
 namespace IUTAPI.Filters
 {
     public class APIkeyMassageHandlerMiddleware
     {
-        private const string APIKeyToCheck = "Your Generated API KEY" ;
+       
+      
         private RequestDelegate next;
         public APIkeyMassageHandlerMiddleware(RequestDelegate next)
         {
@@ -34,11 +36,17 @@ namespace IUTAPI.Filters
             var checkApikeyExists = context.Request.Headers.ContainsKey("APIKey");
             if (checkApikeyExists)
             {
-                if (context.Request.Headers["APIKey"].Equals(APIKeyToCheck))
+                using (var existapikey = new AddDBContext())
                 {
-                    validKey = true;
+                    bool result = existapikey.ApiKey.Any(x => x.Apikey== context.Request.Headers["APIKey"]);
+                    if (result)
+                    {
+                        validKey = true;
 
+                    }
                 }
+
+               
             }
             if (!validKey)
             {
@@ -53,15 +61,46 @@ namespace IUTAPI.Filters
         }
     }
 }
-    public static class MyHanlrxtnsions
+public class welcomeuser
+{
+
+
+    private RequestDelegate next;
+    public welcomeuser(RequestDelegate next)
     {
+        this.next = next;
 
-
-        public static IApplicationBuilder UseApiKey(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<APIkeyMassageHandlerMiddleware>();
-        }
     }
+    public async Task Invoke(HttpContext context)
+    {
+        bool validKey = true;
+
+       
+
+
+        
+        if (!validKey)
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
+            await context.Response.WriteAsync("Invalid Api key");
+        }
+        else
+        {
+            await next.Invoke(context);
+        }
+
+    }
+}
+
+ 
+
+public class AuthorizationMiddlewarePipeline
+{
+    public void Configure(IApplicationBuilder applicationBuilder)
+    {
+        applicationBuilder.UseMiddleware<APIkeyMassageHandlerMiddleware>();
+    }
+}
 
 
 
