@@ -13,16 +13,15 @@
   </head>
   <body>
 <div class="form">
-<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)">
+<form>
         <div class="form-group">
           <label for="exampleInputEmail1">Project Name</label>
-          <input type = "text" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp"name = "emailid" placeholder = "Enter Project Name" ngModel>
-          <input type="text" class="form-control" #tbname id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Project Name">
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Project Name">
           <small id="emailHelp" class="form-text text-muted">Start using our api with great project name</small>
         </div>
-     
+       
     
-        <button type="submit" class="btn btn-primary" id="sub"(click)="GetProjectName(tbname.value)">Generate Api key</button>
+        <button type="submit" class="btn btn-primary" id="sub">Generate Api key</button>
       </form>
 </div>
 
