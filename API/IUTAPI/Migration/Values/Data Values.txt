@@ -1,0 +1,138 @@
+--------------------------  Student  --------------------------------
+
+insert into student values(1,170042001, 'Adnan', 'CSE', '`', 2017, 'Dhaka' , 'adnan01@gmail.com','Male');
+insert into student values(2,160042001, 'Bashir', 'CSE', 'CSE', 2016, 'Gazipur', 'bashir02@gmail.com', 'Male');
+insert into student values(3,150042001, 'Catherine', 'CSE', 'SWE', 2015, 'Tangail', 'catherine03@gmail.com','Female');
+insert into student values(4,140042001, 'David', 'CSE', 'CSE',2014,'Mymensingh','david04@gmail.com','Male');
+insert into student values(5,170042002, 'Ethan', 'CSE', 'CSE',2017,'Khulna', 'ethan02@gmail.com','Male');
+insert into student values(6,160042002, 'Fahim', 'CSE', 'Software Engineering',2016,'Barisal','fahim02@gmail.com','Male');
+insert into student values(7,150042002, 'George,'CSE','Software Engineering',2015,'Rajshahi','George@gmail.com','Male');
+insert into student values(8,140042002, 'Hannah','CSE','CSE',2014,'Sylhet','hannah02@gmail.com','Female');
+insert into student values(9,170042003, 'Ishrak', 'CSE', 'SWE',2017, 'Chittagong','Ishrak03@gmail.com','Male');
+insert into student values(10,170042004, 'John', 'CSE','SWE',2017,'Rongpur','john04@gmail.com','Male');
+insert into student values(11,170041001, 'Katlyn','EEE',NULL,2017,'Rongpur','katlyn01@gmail.com','Female');
+
+
+----------------------------- Teacher  ----------------------------------
+
+insert into facultymember values(1,10001,'Mr. Ahmed ','CSE','0123456789','Assistant Professor','ahmed01@gmail.com','AB2-501','Male');
+insert into facultymember values(2,10002,'Mr. Bond ','EEE','01234567356','Professor','bond02@gmail.com','AB1-201','Male');
+insert into facultymember values(3,10003,'Ms. Chloe','CSE','0123456709','Lecturer','chloe@gmail.com','AB2-404','Female');
+insert into facultymember values(4,10004,'Ms. Diana','CSE','0123456735','Lecturer','diana04@gmail.com','AB2-501','Female');
+insert into facultymember values(5,10005,'Mr. Edward','EEE','012345679','Lecturer','edward05@gmail.com','AB2-504','Male');
+insert into facultymember values(6,10006,'Mr. Felix','CSE','0123456773','Part-time Faculty','felix06@gmail.com','AB2-505','Male');
+insert into facultymember values(7,10007,'Ms. Graham','MCE','0123456782','Professor','graham07@gmail.com','AB2-401','Male');
+insert into facultymember values(8,10008,'Ms. Hamida','CEE','0123456761','Assistant Professor','hamida08@gmail.com','AB1-404','Female');
+insert into facultymember values(9,10009,'Mr. Allen','TVE','0123456753','Assistant Professor','allen09@gmail.com','AB1-408','Male');
+insert into facultymember values(10,100010,'Mr. James','BTM','0123456753','Assistant Professor','james10@gmail.com','AB1-201','Male');
+insert into facultymember values(10,100011,'Mr. Kevin','CEE','0123456759','Assistant Professor','Kevin11@gmail.com','AB1-404','Male');
+
+
+------------------------------  Staff  ----------------------------------------
+
+insert into staff values(1,'101','Mr. Kader','Senior Worker','094834894','Cafeteria','Male');    
+insert into staff values(2,'102','Mr. Firoj','Senior Worker','094834845','Cafeteria','Male'); 
+insert into staff values(3,'103','Mr. Ramjan','Senior Chef','094834875','Cafeteria','Male');    
+insert into staff values(4,'104','Mr. Monir','Senior Worker','094834868','Cafeteria','Male');
+insert into staff values(5,'105','Mr. Ismail','Gate-Keeper','094834812','IUT Gate','Male');    
+insert into staff values(6,'106','Mr. Hafiz','Janitor','094834860','Male Hall','Male'); 
+insert into staff values(7,'107','Mr. Imtiaz','Librarian','094834863','Library','Male');    
+insert into staff values(8,'108','Mr. Amzad','Assistant Secretary','094834802','Admin Building','Male'); 
+insert into staff values(9,'109','Mr. Anwar','Secretary','094834873','Admin Building','Male');    
+insert into staff values(10,'110','Mr. Rayhan','Computer Operator','094834853','Computer office','Male');    
+   
+
+    
+-----------------------------  Course  ----------------------------------------
+
+insert into Course values(1,'CSE 4401', 'Algorithm', 3.00, 'CSE', 4, 'Theory' , 'CSE 4301');
+insert into Course values(2,'CSE 4301', 'Data Structure', 3.00, 'CSE', 3, 'Theory' , 'NULL');
+insert into Course values(3,'CSE 4402', 'Algorithm', 3.00, 'CSE', 4, 'Lab' , 'CSE 4302');
+insert into Course values(4,'CSE 4302', 'Linear Algebra', 3.00, 'CSE',3, 'Theory' , 'CSE 4302');
+insert into Course values(5,'MCE 4403', 'Fluid Machanics', 3.00, 'MCE', 4, 'Theory' , 'Null');
+insert into Course values(6,'MCE 4409', 'Fluid Machanics', 0.00, 'MCE', 4, 'Lab' , 'Null');
+insert into Course values(7,'Math 4303', 'Math Calculus', 3.00, 'CSE', 3, 'Theory' , 'Math 01');
+insert into Course values(8,'EEE 4404', 'EEE Curcuit', 3.00, 'EEE', 4, 'Theory' , 'CSE 4310');
+insert into Course values(9,'EEE 4405', 'EEE lab', 0.75, 'EEE', 4, 'Lab' , 'NULL');
+insert into Course values(10,'CSE 4406', 'HUM 4406', 3.00, 'CSE', 4, 'Theory' , 'NULL');
+insert into Course values(11,'CSE 4304', 'C Programming ', 3.00, 'CSE', 3, 'Theory' , 'NULL');
+insert into Course values(12,'CSE 4305', 'C Programming lab', 0.75, 'CSE', 3, 'Lab' , 'CSE 4304');
+insert into Course values(13,'BTM 4407', 'Accounting', 3.00, 'BTM', 4, 'Theory' , 'NULL');
+insert into Course values(14,'CEE 4401', 'Materials', 3.00, 'CEE', 4, 'Theory' , 'NULL');
+insert into Course values(15,'CEE 4402', 'Materials', 0.75, 'CEE', 4, 'Lab' , 'NULL');
+insert into Course values(15,'TVE 4401', 'Technology, Environment and Society', 3.00, 'TVE', 1, 'Theory' , 'NULL');
+
+
+------------------------------  Department  ---------------------------------------
+
+insert into Department values(1,'CSE');
+insert into Department values(2,'EEE');
+insert into Department values(3,'CEE');
+insert into Department values(4,'MCE');
+insert into Department values(5,'TVE');
+insert into Department values(6,'BTM');
+
+
+
+-------------------------------  CourseAssigned  -----------------------------------
+
+insert into CourseAssigned values(1,'CSE 4302',10001,'3rd Semester',2016);
+insert into CourseAssigned values(2,'EEE 4404',10005,'4th Semester',2017);
+insert into CourseAssigned values(3,'MCE 4403',10007,'4th Semester',2018);
+insert into CourseAssigned values(4,'BTM 4407',10010,'4th Semester',2015);
+insert into CourseAssigned values(5,'CEE 4401',10011,'4th Semester',2017);
+insert into CourseAssigned values(6,'CEE 4402',10011,'4th Semester',2017);
+insert into CourseAssigned values(7,'CSE 4303',10001,'3rd Semester',2017);
+insert into CourseAssigned values(8,'CSE 4404',10001,'4th Semester',2016);
+insert into CourseAssigned values(9,'CSE 4405',10006,'4th Semester',2017);
+insert into CourseAssigned values(10,'TVE 4401',10009,'4th Semester',2018);
+
+
+
+-------------------------  DepartmentalCourse  ---------------------------------------
+
+
+
+insert into DepartmentalCourse values(1,'CSE','CSE 4302');
+insert into DepartmentalCourse values(2,'CSE','CSE 4401');
+insert into DepartmentalCourse values(3,'CSE','CSE 4402');
+insert into DepartmentalCourse values(4,'CSE','CSE 4403');
+insert into DepartmentalCourse values(5,'CSE','CSE 4404');
+insert into DepartmentalCourse values(6,'EEE','EEE 4401');
+insert into DepartmentalCourse values(7,'CEE','CEE 4401');
+insert into DepartmentalCourse values(8,'MCE','MCE 4403');
+insert into DepartmentalCourse values(9,'BTM','BTM 4407');
+insert into DepartmentalCourse values(10,'TVE','TVE 4401');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

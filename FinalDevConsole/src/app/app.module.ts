@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -7,13 +6,10 @@ import { FormsModule }          from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {LoggingComponent} from './logging/logging.component';
 
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ApikeyComponent } from './apikey/apikey.component';
-import { UploadFileComponent } from './upload-file/upload-file.component';
-import { MockComponent } from './mock/mock.component';
 
 
 const config = {
@@ -34,9 +30,6 @@ const appRoutes: Routes = [
   },
   {
     path:'apikey',component:ApikeyComponent
-  },
-  {
-    path:'uploadfile',component:UploadFileComponent
   }
 
 ];
@@ -46,16 +39,12 @@ const appRoutes: Routes = [
     AppComponent,
     WelcomeComponent,
     LoggingComponent,
-    ApikeyComponent,
-    UploadFileComponent,
-    MockComponent
-
+    ApikeyComponent
    // HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
