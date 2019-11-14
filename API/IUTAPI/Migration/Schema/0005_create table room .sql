@@ -1,10 +1,11 @@
 ﻿    CREATE TABLE room
 (
-    roomid text,
+r_id integer primary key,
+    roomid text ,
     roomno integer,
-	level integer;
+	level integer,
     roomname text,
     building text,
-    roomtype text,
-    CONSTRAINT room_pkey PRIMARY KEY (roomid)
+    roomtype text
+   
 );

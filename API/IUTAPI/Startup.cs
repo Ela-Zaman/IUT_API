@@ -56,7 +56,9 @@ namespace IUTAPI
             }
             
             else { app.UseHsts(); }
-            ///app.UseApiKey();
+
+
+            
             app.UseHttpsRedirection();
             
             app.UseMvc();
