@@ -1,4 +1,5 @@
 ﻿Create Table student(
+    s_serial integer unique,
     id integer primary key,
 	name text,
 	department text,

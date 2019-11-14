@@ -38,7 +38,7 @@ namespace IUTAPI.Filters
             {
                 using (var existapikey = new AddDBContext())
                 {
-                    bool result = existapikey.Apikey.Any(x => x.Apikey== context.Request.Headers["APIKey"]);
+                    bool result = existapikey.ApiKey.Any(x => x.Apikey== context.Request.Headers["APIKey"]);
                     if (result)
                     {
                         validKey = true;

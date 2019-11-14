@@ -1,4 +1,4 @@
 ﻿create table Department(
-D_id int identity primary key,
+D_id integer primary key,
 DeptName text
 );
