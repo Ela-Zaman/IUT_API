@@ -9,12 +9,16 @@ using IUTAPI.Filters;
 using System.IO;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNetCore.Cors;
 
 namespace IUTAPI.Controllers
 {
 
     [Route("api/[controller]")]
     [ApiController]
+   
+    [EnableCors("DevConsole")]
+    [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class studentController : ControllerBase
     {
         readonly AddDBContext Context;
@@ -66,7 +70,7 @@ namespace IUTAPI.Controllers
 
             var student = new Student
             {
-                S_id = Convert.ToInt32(fields[0]),
+               S_id = Convert.ToInt32(fields[0]),
                 Id = Convert.ToInt32(fields[1]),
                 Name = (fields[2]),
                 Department = fields[3],

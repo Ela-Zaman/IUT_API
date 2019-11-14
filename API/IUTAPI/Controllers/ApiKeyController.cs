@@ -35,7 +35,7 @@ namespace IUTAPI.Controllers
             apikeys.User = username;
             apikeys.ProjectName = projectname;
             
-            Context.Apikey.AddRange(apikeys);
+            Context.ApiKey.AddRange(apikeys);
             Context.SaveChanges();
             return apik;
 

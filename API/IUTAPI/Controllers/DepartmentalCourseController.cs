@@ -65,8 +65,8 @@ namespace IUTAPI.Controllers
             var deptcourse = new DepartmentalCourse
             {
                 DC_id = Convert.ToInt32(fields[0]),
-                D_id= Convert.ToInt32(fields[1]),
-                C_id= Convert.ToInt32(fields[2])
+                Department=fields[1],
+                Courseid= fields[2]
                
             };
 

@@ -12,9 +12,9 @@ namespace IUTAPI.Models
     {
         [Column("d_id")]
         [Key]
-        public int D_id { get; set; }
+        public int d_id { get; set; }
 
         [Column("deptname")]
-        public string DeptName { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

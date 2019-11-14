@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,8 @@ namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("DevConsole")]
+    [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class AssignedCoursesController : Controller
     {
         // GET: api/<controller>
@@ -67,11 +70,11 @@ namespace IUTAPI.Controllers
             var courseassign = new CourseAssigned
             {
 
-                CourseAssignedId = Convert.ToInt32(fields[0]),
-                F_id = Convert.ToInt32(fields[1]),
-                Batch = Convert.ToInt32(fields[2]),
-                Semester = (fields[3]),
-                CourseId = (fields[4])
+                Ca_id = Convert.ToInt32(fields[0]),
+                CourseId = fields[1],
+                Facultyid = Convert.ToInt32(fields[2]),
+                Semester = Convert.ToInt32(fields[3]),
+                Batch = Convert.ToInt32(fields[4])
                 
             };
 

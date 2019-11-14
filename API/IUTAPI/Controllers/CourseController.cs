@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,8 @@ namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("DevConsole")]
+    [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class CourseController : ControllerBase
     {
         readonly AddDBContext Context;
@@ -65,13 +68,14 @@ namespace IUTAPI.Controllers
 
             var course = new Course
             {
-                CourseId = fields[0],
-                Title = fields[1],
-                Credit = Convert.ToInt32(fields[2]),
-                Deptartment = fields[3],
-                Semester = Convert.ToInt32(fields[4]),
-                Type = fields[5],
-                PrerequisiteCourse = fields[6]
+                C_id = Convert.ToInt32(fields[0]),
+                CourseId = fields[1],
+                Title = fields[2],
+                Credit = Convert.ToInt32(fields[3]),
+                Deptartment = fields[4],
+                Semester = Convert.ToInt32(fields[5]),
+                Type = fields[6],
+                PrerequisiteCourse = fields[7]
             };
 
             return course;

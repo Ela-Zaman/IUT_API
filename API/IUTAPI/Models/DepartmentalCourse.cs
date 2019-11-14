@@ -13,10 +13,10 @@ namespace IUTAPI.Models
         [Column("dc_id")]
         [Key]
         public int DC_id { get; set; }
-        [Column("d_id")]
-        public int D_id { get; set; }
-        [Column("c_id")]
-        public int C_id { get; set; }
+        [Column("department")]
+        public string Department { get; set; }
+        [Column("courrseid")]
+        public string Courseid { get; set; }
 
 
     }
