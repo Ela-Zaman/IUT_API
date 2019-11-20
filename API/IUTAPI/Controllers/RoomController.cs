@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace IUTAPI.Controllers
 {
@@ -56,9 +53,6 @@ namespace IUTAPI.Controllers
 
                 return Ok(dot);
             }
-
-
-
         }
 
         private Room ReadFromCsv(string line)

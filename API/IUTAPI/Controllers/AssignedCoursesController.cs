@@ -2,15 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace IUTAPI.Controllers
 {
@@ -20,10 +16,11 @@ namespace IUTAPI.Controllers
     [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class AssignedCoursesController : Controller
     {
-        // GET: api/<controller>
         readonly ApiDbContext Context;
         public AssignedCoursesController(ApiDbContext context)
-            => Context = context;
+        {
+            Context = context;
+        }
 
         [HttpGet]
         [EnableQuery()]
@@ -31,6 +28,7 @@ namespace IUTAPI.Controllers
         {
             return Context.CourseAssigned;
         }
+
         [HttpPost]
         public IActionResult ReadCsvfile(IFormFile file)
         {
@@ -58,9 +56,6 @@ namespace IUTAPI.Controllers
 
                 return Ok(pet);
             }
-
-
-
         }
 
         private CourseAssigned ReadFromCsv(string line)

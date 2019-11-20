@@ -3,8 +3,6 @@ using System.Threading.Tasks;
 using System.Net;
 
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Builder;
-using IUTAPI.Filters;
 using IUTAPI.Models;
 
 namespace IUTAPI.Filters
@@ -44,15 +42,3 @@ namespace IUTAPI.Filters
         }
     }
 }
-
-public class AuthorizationMiddlewarePipeline
-{
-    public void Configure(IApplicationBuilder applicationBuilder)
-    {
-        applicationBuilder.UseMiddleware<APIkeyMassageHandlerMiddleware>();
-    }
-}
-
-
-
-

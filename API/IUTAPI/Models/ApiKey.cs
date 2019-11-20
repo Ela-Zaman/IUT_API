@@ -18,7 +18,5 @@ namespace IUTAPI.Models
         public string User { get; set; }
         [Column("projectname")]
         public string ProjectName { get; set; }
-
-       
     }
 }

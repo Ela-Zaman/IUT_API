@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Http;
@@ -53,9 +52,6 @@ namespace IUTAPI.Controllers
 
                 return Ok(temp);
             }
-
-
-
         }
 
         private DepartmentalCourse ReadFromCsv(string line)

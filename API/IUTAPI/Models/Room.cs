@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IUTAPI.Models
 {
@@ -19,8 +15,8 @@ namespace IUTAPI.Models
         [Column("roomno")]
         public int RoomNo { get; set; }
         [Column("level")]
-        public int level {get; set;}
-    
+        public int level { get; set; }
+
         [Column("roomname")]
         public string RoomName { get; set; }
         [Column("building")]
