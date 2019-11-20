@@ -14,8 +14,8 @@ namespace IUTAPI.Controllers
     [ApiController]
     public class DepartmentalCourseController : ControllerBase
     {
-        readonly AddDBContext Context;
-        public DepartmentalCourseController(AddDBContext context)
+        readonly ApiDbContext Context;
+        public DepartmentalCourseController(ApiDbContext context)
             => Context = context;
 
         [HttpGet]

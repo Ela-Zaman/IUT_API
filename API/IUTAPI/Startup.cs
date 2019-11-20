@@ -26,7 +26,7 @@ namespace IUTAPI
 
             services.AddOData();
             services.AddEntityFrameworkNpgsql()
-                 .AddDbContext<AddDBContext>()
+                 .AddDbContext<ApiDbContext>()
                  .BuildServiceProvider();
 
             services.AddCors(o => o.AddPolicy("DevConsole", builder =>

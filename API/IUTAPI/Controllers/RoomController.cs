@@ -17,8 +17,8 @@ namespace IUTAPI.Controllers
     public class RoomController : Controller
     {
 
-        readonly AddDBContext Context;
-        public RoomController(AddDBContext context)
+        readonly ApiDbContext Context;
+        public RoomController(ApiDbContext context)
             => Context = context;
 
         [HttpGet]

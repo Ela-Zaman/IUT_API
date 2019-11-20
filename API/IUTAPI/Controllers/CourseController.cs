@@ -18,8 +18,8 @@ namespace IUTAPI.Controllers
     [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class CourseController : ControllerBase
     {
-        readonly AddDBContext Context;
-        public CourseController(AddDBContext context)
+        readonly ApiDbContext Context;
+        public CourseController(ApiDbContext context)
             => Context = context;
 
         [HttpGet]

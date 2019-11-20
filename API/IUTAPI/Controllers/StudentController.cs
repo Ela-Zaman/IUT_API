@@ -21,15 +21,15 @@ namespace IUTAPI.Controllers
     [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class studentController : ControllerBase
     {
-        readonly AddDBContext Context;
-        public studentController(AddDBContext context)
+        readonly ApiDbContext Context;
+        public studentController(ApiDbContext context)
             => Context = context;
 
         [HttpGet]
         [EnableQuery()]
         public IEnumerable GetRooms()
         {
-            return Context.student;
+            return Context.Student;
         }
 
         [HttpPost]
@@ -54,7 +54,7 @@ namespace IUTAPI.Controllers
                     }
                 }
 
-                Context.student.AddRange(bat);
+                Context.Student.AddRange(bat);
                 Context.SaveChanges();
 
                 return Ok(bat);
