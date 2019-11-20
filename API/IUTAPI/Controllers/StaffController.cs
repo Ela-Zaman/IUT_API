@@ -20,8 +20,8 @@ namespace IUTAPI.Controllers
     [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class StaffController : Controller
     {
-        readonly AddDBContext Context;
-        public StaffController(AddDBContext context)
+        readonly ApiDbContext Context;
+        public StaffController(ApiDbContext context)
             => Context = context;
 
         [HttpGet]

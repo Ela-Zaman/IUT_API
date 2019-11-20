@@ -21,8 +21,8 @@ namespace IUTAPI.Controllers
     public class AssignedCoursesController : Controller
     {
         // GET: api/<controller>
-        readonly AddDBContext Context;
-        public AssignedCoursesController(AddDBContext context)
+        readonly ApiDbContext Context;
+        public AssignedCoursesController(ApiDbContext context)
             => Context = context;
 
         [HttpGet]

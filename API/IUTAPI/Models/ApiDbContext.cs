@@ -1,25 +1,29 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace IUTAPI.Models
 {
-    public class AddDBContext:DbContext
+    public class ApiDbContext : DbContext
     {
-        public DbSet<FacultyMember> FacultyMember { get; set; }
-         public DbSet<Student> student { get; set; }
+        private readonly string conenctionString;
 
+        public ApiDbContext(IConfiguration configuration)
+        {
+            conenctionString = configuration.GetConnectionString("API");
+        }
+
+        public DbSet<FacultyMember> FacultyMember { get; set; }
+        public DbSet<Student> Student { get; set; }
         public DbSet<Course> Course { get; set; }
         public DbSet<Staff> Staff { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<CourseAssigned> CourseAssigned { get; set; }
-        
         public DbSet<Department> Department { get; set; }
         public DbSet<DepartmentalCourse> DepartmentalCourse { get; set; }
         public DbSet<ApiKey> ApiKey { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-                => optionsBuilder.UseNpgsql("Host=localhost;Database=IUTAPI;Username=CodeBlue;Password=iutswe");
+        {
+            optionsBuilder.UseNpgsql(conenctionString);
+        }
     }
 }

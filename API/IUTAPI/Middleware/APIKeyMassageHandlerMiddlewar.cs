@@ -18,7 +18,7 @@ namespace IUTAPI.Filters
             this.next = next;
         }
 
-        public async Task Invoke(HttpContext context, AddDBContext db)
+        public async Task Invoke(HttpContext context, ApiDbContext db)
         {
             bool validKey = false;
 
