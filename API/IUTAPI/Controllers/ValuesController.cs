@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IUTAPI.Filters;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IUTAPI.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("DevConsole")]

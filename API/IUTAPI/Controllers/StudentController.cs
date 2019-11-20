@@ -16,7 +16,7 @@ namespace IUTAPI.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-   
+
     [EnableCors("DevConsole")]
     [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class studentController : ControllerBase
@@ -59,9 +59,6 @@ namespace IUTAPI.Controllers
 
                 return Ok(bat);
             }
-
-
-
         }
 
         private Student ReadFromCsv(string line)
@@ -70,7 +67,7 @@ namespace IUTAPI.Controllers
 
             var student = new Student
             {
-               S_id = Convert.ToInt32(fields[0]),
+                S_id = Convert.ToInt32(fields[0]),
                 Id = Convert.ToInt32(fields[1]),
                 Name = (fields[2]),
                 Department = fields[3],
@@ -78,7 +75,6 @@ namespace IUTAPI.Controllers
                 Batch = Convert.ToInt32(fields[5]),
                 Address = fields[6],
                 Email = fields[7],
-
                 Gender = fields[8],
             };
 

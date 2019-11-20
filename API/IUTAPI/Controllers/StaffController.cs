@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace IUTAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-   
+
     [EnableCors("DevConsole")]
     [MiddlewareFilter(typeof(AuthorizationMiddlewarePipeline))]
     public class StaffController : Controller
@@ -58,20 +55,15 @@ namespace IUTAPI.Controllers
 
                 return Ok(top);
             }
-
-
-
         }
 
         private Staff ReadFromCsv(string line)
         {
             var fields = line.Split(new char[] { ',' });
-            
-            
+
             var staff = new Staff
             {
-             
-            St_id =Convert.ToInt32( fields[0]),
+                St_id = Convert.ToInt32(fields[0]),
                 StaffId = fields[1],
                 Name = fields[2],
                 Designation = fields[3],

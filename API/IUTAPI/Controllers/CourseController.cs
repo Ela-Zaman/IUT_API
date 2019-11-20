@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using IUTAPI.Models;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Cors;
@@ -20,7 +18,9 @@ namespace IUTAPI.Controllers
     {
         readonly ApiDbContext Context;
         public CourseController(ApiDbContext context)
-            => Context = context;
+        {
+            Context = context;
+        }
 
         [HttpGet]
         [EnableQuery()]
@@ -57,9 +57,6 @@ namespace IUTAPI.Controllers
 
                 return Ok(cat);
             }
-
-
-
         }
 
         private Course ReadFromCsv(string line)
